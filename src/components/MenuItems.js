@@ -1,22 +1,22 @@
 export const MenuItems = [
   {
-    title: 'Marketing',
-    path: '/marketing',
-    cName: 'dropdown-link'
+    title: "Sustainability Consulting",
+    path: "/sustainability-consulting",
+    cName: "dropdown-link",
   },
   {
-    title: 'Consulting',
-    path: '/consulting',
-    cName: 'dropdown-link'
+    title: "Engineering",
+    path: "/engineering",
+    cName: "dropdown-link",
   },
   {
-    title: 'Design',
-    path: '/design',
-    cName: 'dropdown-link'
+    title: "Enterprise Asset Management",
+    path: "/enterprise-asset-management",
+    cName: "dropdown-link",
   },
   {
-    title: 'Development',
-    path: '/development',
-    cName: 'dropdown-link'
-  }
+    title: "Risk Management",
+    path: "/risk-management",
+    cName: "dropdown-link",
+  },
 ];
