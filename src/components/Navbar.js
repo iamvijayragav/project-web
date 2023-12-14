@@ -2,27 +2,44 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
-
+import ProjectDropdown from "./ProjectDropdown";
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  const [seriveDropdown, setServiceDropdown] = useState(false);
+  const [projectdropdown, setProjectDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const onMouseEnter = () => {
+  const onServiceEnter = () => {
     if (window.innerWidth < 960) {
-      setDropdown(false);
+      setServiceDropdown(false);
     } else {
-      setDropdown(true);
+      setServiceDropdown(true);
     }
   };
 
-  const onMouseLeave = () => {
+  const onProjectEnter = () => {
     if (window.innerWidth < 960) {
-      setDropdown(false);
+      setProjectDropdown(false);
     } else {
-      setDropdown(false);
+      setProjectDropdown(true);
+    }
+  };
+
+  const onServiceLeave = () => {
+    if (window.innerWidth < 960) {
+      setServiceDropdown(false);
+    } else {
+      setServiceDropdown(false);
+    }
+  };
+
+  const onProjectLeave = () => {
+    if (window.innerWidth < 960) {
+      setProjectDropdown(false);
+    } else {
+      setProjectDropdown(false);
     }
   };
 
@@ -39,6 +56,9 @@ function Navbar() {
           <li className="nav-item">
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
               HOME
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
           </li>
           <li className="nav-item">
@@ -48,34 +68,45 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               ABOUT US
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
           </li>
           <li
             className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+            onMouseEnter={onServiceEnter}
+            onMouseLeave={onServiceLeave}
           >
-            <Link
-              to="/services"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
+            <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
               SERVICES <i className="fas fa-caret-down" />
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
-            {dropdown && <Dropdown />}
+            {seriveDropdown && (
+              <Dropdown one={onProjectEnter} two={onProjectLeave} />
+            )}
           </li>
-          <li className="nav-item">
-            <Link
-              to="/projects"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              PROJECTS
+          <li
+            className="nav-item"
+            onMouseEnter={onProjectEnter}
+            onMouseLeave={onProjectLeave}
+          >
+            <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
+              PROJECTS <i className="fas fa-caret-down" />
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
+            {projectdropdown && <ProjectDropdown />}
           </li>
           <li className="nav-item">
             <Link to="/carrers" className="nav-links" onClick={closeMobileMenu}>
               CAREERS
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
           </li>
           <li className="nav-item">
@@ -85,6 +116,9 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               CONTACT US
+              <div className="underline">
+                <span></span>
+              </div>
             </Link>
           </li>
         </ul>

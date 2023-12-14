@@ -20,3 +20,20 @@ export const MenuItems = [
     cName: "dropdown-link",
   },
 ];
+export const ProjectItems = [
+  {
+    title: "Engineering Projects",
+    path: "/engineering-project",
+    cName: "dropdown-link",
+  },
+  {
+    title: "Data Management Project",
+    path: "/data-management-project",
+    cName: "dropdown-link",
+  },
+  {
+    title: "Risk Management Project",
+    path: "/risk-management-project",
+    cName: "dropdown-link",
+  },
+];
