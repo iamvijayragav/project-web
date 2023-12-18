@@ -97,7 +97,7 @@ function Navbar() {
             {projectdropdown && <ProjectDropdown />}
           </li>
           <li className="nav-item">
-            <Link to="/carrers" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/careers" className="nav-links" onClick={closeMobileMenu}>
               CAREERS
             </Link>
           </li>

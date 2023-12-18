@@ -1,0 +1,63 @@
+.main-career {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.job-openings-container,
+.apply-form-container {
+    flex: 1;
+    margin: 0 20px;
+}
+
+h2 {
+    color: #333;
+    padding: 2%;
+    margin-bottom: 1%;
+}
+
+.job-opening-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+
+/* Styles for JobOpeningCard */
+
+.job-opening-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-opening-card h3 {
+    color: #333;
+}
+
+.job-opening-card p {
+    color: #555;
+}
+
+
+/* Styles for ApplyForm */
+
+.apply-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.apply-form h2 {
+    color: #333;
+}

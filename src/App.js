@@ -7,6 +7,7 @@ import ContactUs from "./components/pages/ContactUs";
 import SignUp from "./components/pages/SignUp";
 import Marketing from "./components/pages/Marketing";
 import Consulting from "./components/pages/Consulting";
+import Careers from './components/pages/Careers/Careers'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/sign-up" component={SignUp} />
         <Route path="/marketing" component={Marketing} />
         <Route path="/consulting" component={Consulting} />
+        <Route path="/careers" component={Careers} />
       </Switch>
     </Router>
   );
