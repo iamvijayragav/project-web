@@ -37,3 +37,20 @@ export const ProjectItems = [
     cName: "dropdown-link",
   },
 ];
+export const SubDropDown = [
+  {
+    title: "Risk Management Project",
+    path: "/risk-management-project",
+    cName: "dropdown-link",
+  },
+  {
+    title: "Risk Management Project",
+    path: "/risk-management-project",
+    cName: "dropdown-link",
+  },
+  {
+    title: "Risk Management Project",
+    path: "/risk-management-project",
+    cName: "dropdown-link",
+  },
+];

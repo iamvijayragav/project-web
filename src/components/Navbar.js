@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
 import ProjectDropdown from "./ProjectDropdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const [seriveDropdown, setServiceDropdown] = useState(false);
@@ -56,9 +63,6 @@ function Navbar() {
           <li className="nav-item">
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
               HOME
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
           </li>
           <li className="nav-item">
@@ -68,9 +72,6 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               ABOUT US
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
           </li>
           <li
@@ -80,9 +81,6 @@ function Navbar() {
           >
             <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
               SERVICES <i className="fas fa-caret-down" />
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
             {seriveDropdown && (
               <Dropdown one={onProjectEnter} two={onProjectLeave} />
@@ -95,18 +93,12 @@ function Navbar() {
           >
             <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
               PROJECTS <i className="fas fa-caret-down" />
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
             {projectdropdown && <ProjectDropdown />}
           </li>
           <li className="nav-item">
             <Link to="/carrers" className="nav-links" onClick={closeMobileMenu}>
               CAREERS
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
           </li>
           <li className="nav-item">
@@ -116,12 +108,20 @@ function Navbar() {
               onClick={closeMobileMenu}
             >
               CONTACT US
-              <div className="underline">
-                <span></span>
-              </div>
             </Link>
           </li>
         </ul>
+        <div className="icons">
+          <a href="https://www.facebook.com/">
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href="https://twitter.com/">
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href="https://www.instagram.com/">
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+        </div>
       </nav>
     </>
   );

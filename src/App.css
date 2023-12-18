@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "JetBrains Mono", monospace;
   font-family: "PT Sans", sans-serif;
   font-family: "Roboto Condensed", sans-serif;
 }
@@ -20,14 +21,14 @@
   font-size: 3rem;
 }
 
-.home {
+/* .home {
   background-image: url("./images/img-1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
-}
+} */
 
 .services {
   background-image: url("./images/img-2.jpg");
