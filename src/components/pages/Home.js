@@ -3,7 +3,6 @@ import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../Modal/Popup";
-import Footer from "./Footer";
 
 export default function Home() {
   return (
@@ -97,7 +96,6 @@ export default function Home() {
             <Popup />
           </div>
         </div>
-        <Footer/>
       </div>
     </>
   );
