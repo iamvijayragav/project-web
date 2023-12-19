@@ -1,12 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./ApplyForm.css";
 
-const ApplyForm = ({ onSent }) => {
+const ApplyForm = ({ onApply }) => {
   const [formError, setFormError] = useState(null);
-  const [isFormCancel, setIsFormCancel] = useState(true);
-  const toggleFormHidden = () => {
-    setIsFormCancel((prevState) => !prevState);
-  };
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -14,14 +10,17 @@ const ApplyForm = ({ onSent }) => {
   const subjectRef = useRef(null);
   const messageRef = useRef(null);
 
-  // const handleReset = (e) => {
-  //   e.target.form.reset();
-  //   setFormError(null);
-  // };
+  const handleReset = (e) => {
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    resumeRef.current.value = null;
+    subjectRef.current.value = "";
+    messageRef.current.value = "";
+    setFormError(null);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (
       !nameRef.current.value ||
       !emailRef.current.value ||
@@ -29,11 +28,11 @@ const ApplyForm = ({ onSent }) => {
       !resumeRef.current.files[0] ||
       !messageRef.current.value
     ) {
-      setFormError("Please fill in all required fields.");
+      setFormError("* Please fill all the required fields.");
       return;
     }
 
-    onSent(false);
+    onApply(false);
     alert(
       "Your Application was Sent!  \nOur Recruiting team will contact you soon! \nStay tuned for further updates."
     );
@@ -53,7 +52,7 @@ const ApplyForm = ({ onSent }) => {
 
   return (
     <>
-      {isFormCancel && (
+      {onApply && (
         <div className="apply-form">
           <div className="container">
             <div className="screen">
@@ -75,9 +74,11 @@ const ApplyForm = ({ onSent }) => {
                   />
                 </div>
                 <div className="screen-body-item">
+                  <span onClick={handleReset} style={{ cursor: "pointer"}}>reset</span>
+
                   <form className="app-form">
                     {formError && (
-                      <div className="error-message" style={{ color: "white" }}>
+                      <div className="error-message" style={{ color: "red" }}>
                         {formError}
                       </div>
                     )}
@@ -124,19 +125,21 @@ const ApplyForm = ({ onSent }) => {
                       />
                     </div>
                     <div className="app-form-group buttons">
-                      <button
-                        className="app-form-button"
-                        onClick={toggleFormHidden}
-                        // onClick={handleReset}
-                      >
-                        CANCEL
-                      </button>
+
                       <button
                         type="submit"
                         className="app-form-button"
                         onClick={handleSubmit}
                       >
                         SEND
+                      </button>
+
+                      <button
+                        className="app-form-button"
+                        onClick={() => onApply(false)}
+                      // onClick={handleReset}
+                      >
+                        WITHDRAW
                       </button>
                     </div>
                   </form>

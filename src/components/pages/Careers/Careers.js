@@ -73,7 +73,7 @@ function Careers() {
       {isApply && (
         <div className="apply-form-container">
           <h2>Apply Now</h2>
-          <ApplyForm onSent={setIsApply} />
+          <ApplyForm onApply={setIsApply} />
         </div>
       )}
     </div>
