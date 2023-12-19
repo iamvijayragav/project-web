@@ -1,8 +1,12 @@
-import React, { useRef, useState } from 'react';
-import './ApplyForm.css';
+import React, { useRef, useState } from "react";
+import "./ApplyForm.css";
 
 const ApplyForm = ({ onSent }) => {
   const [formError, setFormError] = useState(null);
+  const [isFormCancel, setIsFormCancel] = useState(true);
+  const toggleFormHidden = () => {
+    setIsFormCancel((prevState) => !prevState);
+  };
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -10,21 +14,29 @@ const ApplyForm = ({ onSent }) => {
   const subjectRef = useRef(null);
   const messageRef = useRef(null);
 
-  const handleReset = (e) => {
-    e.target.form.reset();
-    setFormError(null);
-  };
+  // const handleReset = (e) => {
+  //   e.target.form.reset();
+  //   setFormError(null);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!nameRef.current.value || !emailRef.current.value || !subjectRef.current.value || !resumeRef.current.files[0] || !messageRef.current.value) {
-      setFormError("Please fill in all required fields.") ;
+    if (
+      !nameRef.current.value ||
+      !emailRef.current.value ||
+      !subjectRef.current.value ||
+      !resumeRef.current.files[0] ||
+      !messageRef.current.value
+    ) {
+      setFormError("Please fill in all required fields.");
       return;
     }
-    
+
     onSent(false);
-    alert('Your Application was Sent!  \nOur Recruiting team will contact you soon! \nStay tuned for further updates.')
+    alert(
+      "Your Application was Sent!  \nOur Recruiting team will contact you soon! \nStay tuned for further updates."
+    );
 
     const formData = {
       name: nameRef.current.value,
@@ -34,50 +46,107 @@ const ApplyForm = ({ onSent }) => {
       message: messageRef.current.value,
     };
 
-    console.log('Form Data:', formData);
+    console.log("Form Data:", formData);
     setFormError(null);
     e.target.form.reset();
   };
 
   return (
-    <div className="apply-form">
-      <div className="container">
-        <div className="screen">
-          <div className="screen-body">
-            <div className="screen-body-item left">
-              <div className="app-title">
-                <span>CONTACT</span>
-                <span>US</span>
+    <>
+      {isFormCancel && (
+        <div className="apply-form">
+          <div className="container">
+            <div className="screen">
+              <div className="screen-body">
+                <div className="screen-body-item left">
+                  <div className="app-title">
+                    <span>CONTACT </span>
+                    <span>US</span>
+                  </div>
+                  <p>
+                    Join our dynamic team, where innovation thrives and every
+                    voice matters. Discover endless opportunities for growth and
+                    a supportive, inclusive culture that values your unique
+                    contribution.
+                  </p>
+                  <img
+                    src="https://www.tecnicoepc.com/wp-content/uploads/2023/02/download-49.jpeg"
+                    alt=""
+                  />
+                </div>
+                <div className="screen-body-item">
+                  <form className="app-form">
+                    {formError && (
+                      <div className="error-message" style={{ color: "white" }}>
+                        {formError}
+                      </div>
+                    )}
+                    <div className="app-form-group">
+                      <input
+                        className="app-form-control"
+                        placeholder="NAME"
+                        ref={nameRef}
+                        required
+                      />
+                    </div>
+                    <div className="app-form-group">
+                      <input
+                        className="app-form-control"
+                        placeholder="EMAIL"
+                        ref={emailRef}
+                        required
+                      />
+                    </div>
+                    <div className="app-form-group">
+                      <input
+                        type="text"
+                        className="app-form-control"
+                        placeholder="SUBJECT"
+                        ref={subjectRef}
+                        required
+                      />
+                    </div>
+                    <div className="app-form-group">
+                      <input
+                        type="file"
+                        className="app-form-control"
+                        placeholder="RESUME"
+                        ref={resumeRef}
+                        required
+                      />
+                    </div>
+                    <div className="app-form-group message">
+                      <textarea
+                        className="app-form-control"
+                        placeholder="MESSAGE"
+                        ref={messageRef}
+                        required
+                      />
+                    </div>
+                    <div className="app-form-group buttons">
+                      <button
+                        className="app-form-button"
+                        onClick={toggleFormHidden}
+                        // onClick={handleReset}
+                      >
+                        CANCEL
+                      </button>
+                      <button
+                        type="submit"
+                        className="app-form-button"
+                        onClick={handleSubmit}
+                      >
+                        SEND
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-            <div className="screen-body-item">
-              <form className="app-form">
-                {formError && <div className="error-message" style={{color:'white'}}>{formError}</div>}
-                <div className="app-form-group">
-                  <input className="app-form-control" placeholder="NAME" ref={nameRef} required />
-                </div>
-                <div className="app-form-group">
-                  <input className="app-form-control" placeholder="EMAIL" ref={emailRef} required />
-                </div>
-                <div className="app-form-group">
-                  <input type="text" className="app-form-control" placeholder="SUBJECT" ref={subjectRef} required />
-                </div>
-                <div className="app-form-group">
-                  <input type="file" className="app-form-control" placeholder="RESUME" ref={resumeRef} required />
-                </div>
-                <div className="app-form-group message">
-                  <textarea className="app-form-control" placeholder="MESSAGE" ref={messageRef} required />
-                </div>
-                <div className="app-form-group buttons">
-                  <button className="app-form-button" onClick={handleReset}>CANCEL</button>
-                  <button type="submit" className="app-form-button" onClick={handleSubmit}>SEND</button>
-                </div>
-              </form>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

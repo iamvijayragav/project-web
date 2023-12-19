@@ -7,7 +7,7 @@ import ContactUs from "./components/pages/ContactUs";
 import Projects from "./components/pages/Projects";
 import Marketing from "./components/pages/Marketing";
 import Consulting from "./components/pages/Consulting";
-import Careers from './components/pages/Careers/Careers'
+import Careers from "./components/pages/Careers/Careers";
 import Footer from "./components/pages/Footer";
 import Services from "./components/pages/Services";
 
@@ -16,17 +16,27 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/contact-us" component={ContactUs} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/marketing" component={Marketing} />
-        <Route path="/consulting" component={Consulting} />
-        <Route path="/careers" component={Careers} />
-        <Route path="/service" component={Services} />
-
-
+        <Route path="/" exact component={(props) => <Home {...props} />} />
+        <Route
+          path="/contact-us"
+          component={(props) => <ContactUs {...props} />}
+        />
+        <Route
+          path="/projects"
+          component={(props) => <Projects {...props} />}
+        />
+        <Route
+          path="/marketing"
+          component={(props) => <Marketing {...props} />}
+        />
+        <Route
+          path="/consulting"
+          component={(props) => <Consulting {...props} />}
+        />
+        <Route path="/careers" component={(props) => <Careers {...props} />} />
+        <Route path="/service" component={(props) => <Services {...props} />} />
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }

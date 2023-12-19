@@ -1,17 +1,17 @@
-import React from 'react';
-import { useState } from 'react';
-import './Careers.css'
-import JobOpeningCard from '../Cards/JobOpeningCard';
-import ApplyForm from './ApplyForm';
+import React from "react";
+import { useState } from "react";
+import "./Careers.css";
+import JobOpeningCard from "../Cards/JobOpeningCard";
+import ApplyForm from "./ApplyForm";
 function Careers() {
-
   const [isApply, setIsApply] = useState(false);
+
   return (
-    <div className='main-career'>
+    <div className="main-career">
       <div className="content-container">
         <div className="job-openings-container">
           <h2>Job Openings</h2>
-          <div className="job-opening-cards" >
+          <div className="job-opening-cards">
             <JobOpeningCard
               onApply={setIsApply}
               title="Frontend Developer"
@@ -70,17 +70,14 @@ function Careers() {
           </div>
         </div>
       </div>
-      {
-        isApply && (
-          <div className="apply-form-container">
-            <h2>Apply Now</h2>
-            <ApplyForm onSent={setIsApply}/>
-          </div>
-        )
-      }
-
+      {isApply && (
+        <div className="apply-form-container">
+          <h2>Apply Now</h2>
+          <ApplyForm onSent={setIsApply} />
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Careers
+export default Careers;
