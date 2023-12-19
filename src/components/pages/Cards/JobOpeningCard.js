@@ -2,7 +2,7 @@ import React from 'react';
 import './JobOpeningCard.css';
 import { Link } from 'react-scroll';
 
-const JobOpeningCard = ({ title, description }) => {
+const JobOpeningCard = ({ title, description, onApply }) => {
   return (
     <div className="job-opening-card">
       <div className="job-opening-header">
@@ -10,9 +10,8 @@ const JobOpeningCard = ({ title, description }) => {
       </div>
       <div className="job-opening-content">
         <p>{description}</p>
-
         <Link to="apply-form" smooth={true} duration={500}>
-          <button className="apply-now-button">Apply Now</button>
+          <button className="apply-now-button" onClick={()=>onApply(true)}>Apply Now</button>
         </Link>
       </div>
     </div>

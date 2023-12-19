@@ -96,9 +96,6 @@ export default function Home() {
             <Popup />
           </div>
         </div>
-        <div className="footer">
-          <p>Copyright © tecnicoepc.com by All Right Reserved. </p>
-        </div>
       </div>
     </>
   );
