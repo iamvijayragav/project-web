@@ -1,22 +1,25 @@
 .modal {
-    width: 300px;
-    height: 300px;
-    overflow-y: auto;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
+  width: 300px;
+  height: 300px;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
 }
 
 .modal-inside {
-    padding: 8%;
-    text-align: justify;
+  padding: 8%;
+  text-align: justify;
 }
 
 .update {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.modal-inside li {
+  margin-top: 4%;
 }
