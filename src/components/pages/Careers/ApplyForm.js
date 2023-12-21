@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./ApplyForm.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRefresh } from "@fortawesome/free-solid-svg-icons";
 
 const ApplyForm = ({ onApply }) => {
   const [formError, setFormError] = useState(null);
@@ -74,8 +76,6 @@ const ApplyForm = ({ onApply }) => {
                   />
                 </div>
                 <div className="screen-body-item">
-                  <span onClick={handleReset} style={{ cursor: "pointer"}}>reset</span>
-
                   <form className="app-form">
                     {formError && (
                       <div className="error-message" style={{ color: "red" }}>
@@ -125,7 +125,9 @@ const ApplyForm = ({ onApply }) => {
                       />
                     </div>
                     <div className="app-form-group buttons">
-
+                      <span onClick={handleReset} style={{ cursor: "pointer" }}>
+                        <FontAwesomeIcon className="rotate" icon={faRefresh} />
+                      </span>
                       <button
                         type="submit"
                         className="app-form-button"
@@ -137,7 +139,6 @@ const ApplyForm = ({ onApply }) => {
                       <button
                         className="app-form-button"
                         onClick={() => onApply(false)}
-                      // onClick={handleReset}
                       >
                         WITHDRAW
                       </button>

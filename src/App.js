@@ -1,15 +1,14 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import "./App.css";
-import Home from "./components/pages/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/pages/Home";
+import AboutUs from "./components/pages/AboutUs";
 import ContactUs from "./components/pages/ContactUs";
-import Projects from "./components/pages/Projects";
 import Marketing from "./components/pages/Marketing";
 import Consulting from "./components/pages/Consulting";
 import Careers from "./components/pages/Careers/Careers";
-import Footer from "./components/pages/Footer";
-import Services from "./components/pages/Services";
+// import Footer from "./components/pages/Footer";
 
 function App() {
   return (
@@ -18,12 +17,13 @@ function App() {
       <Switch>
         <Route path="/" exact component={(props) => <Home {...props} />} />
         <Route
-          path="/contact-us"
-          component={(props) => <ContactUs {...props} />}
+          path="/about-us"
+          exact
+          component={(props) => <AboutUs {...props} />}
         />
         <Route
-          path="/projects"
-          component={(props) => <Projects {...props} />}
+          path="/contact-us"
+          component={(props) => <ContactUs {...props} />}
         />
         <Route
           path="/marketing"
@@ -34,9 +34,8 @@ function App() {
           component={(props) => <Consulting {...props} />}
         />
         <Route path="/careers" component={(props) => <Careers {...props} />} />
-        <Route path="/service" component={(props) => <Services {...props} />} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

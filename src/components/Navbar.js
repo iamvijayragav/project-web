@@ -79,7 +79,7 @@ function Navbar() {
             onMouseEnter={onServiceEnter}
             onMouseLeave={onServiceLeave}
           >
-            <Link to="/service" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
               SERVICES <i className="fas fa-caret-down" />
             </Link>
             {seriveDropdown && (
@@ -91,7 +91,7 @@ function Navbar() {
             onMouseEnter={onProjectEnter}
             onMouseLeave={onProjectLeave}
           >
-            <Link to="/projects" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/#" className="nav-links" onClick={closeMobileMenu}>
               PROJECTS <i className="fas fa-caret-down" />
             </Link>
             {projectdropdown && <ProjectDropdown />}

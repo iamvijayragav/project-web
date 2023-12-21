@@ -12,6 +12,7 @@ function Dropdown(props) {
     <>
       <ul
         onClick={handleClick}
+        style={{ background: "white" }}
         className={click ? "dropdown-menu clicked" : "dropdown-menu"}
       >
         {MenuItems.map((item, index) => {
