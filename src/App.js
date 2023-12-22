@@ -3,12 +3,12 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/pages/Home";
-import AboutUs from "./components/pages/AboutUs";
 import ContactUs from "./components/pages/ContactUs";
 import Marketing from "./components/pages/Marketing";
 import Consulting from "./components/pages/Consulting";
 import Careers from "./components/pages/Careers/Careers";
 // import Footer from "./components/pages/Footer";
+import AboutUs from "./components/pages/Aboutus/AboutUs";
 
 function App() {
   return (

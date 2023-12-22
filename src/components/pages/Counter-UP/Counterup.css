@@ -1,0 +1,21 @@
+.counter-div {
+  padding: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: aliceblue;
+}
+.counter-div h1 {
+  background-color: #fff;
+  padding: 5%;
+  transition: transform 0.3s;
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.925);
+}
+.counter-div h1:hover {
+  transform: scale(1.4);
+  color: #d83838;
+}
+.counter-div p {
+  font-size: 23px;
+}
