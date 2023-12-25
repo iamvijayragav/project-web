@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
-import Popup from "../Modal/Popup";
+import Popup from "../../Modal/Popup";
 
 export default function Home() {
   return (

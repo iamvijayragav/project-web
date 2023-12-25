@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Dropdown from "./Dropdown";
-import ProjectDropdown from "./ProjectDropdown";
+import Dropdown from "../DropDown/Dropdown";
+import ProjectDropdown from "../ProjectDropDown/ProjectDropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
