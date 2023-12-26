@@ -7,9 +7,6 @@ function Engineering() {
   useEffect(() => {
     NET({
       el: "#vanta",
-      color: 0x774355,
-      //   spacing: 5.9,
-      //   chaos: 3.9,
     });
   }, []);
 
