@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./components/pages/Home/Home";
@@ -9,39 +9,64 @@ import AboutUs from "./components/pages/Aboutus/AboutUs";
 import Engineering from "./components/pages/DropDown-Pages/Engineering/Engineering";
 import RiskManagement from "./components/pages/DropDown-Pages/RiskManagement/RiskManagement";
 import Enterprise from "./components/pages/DropDown-Pages/Enterprise-asset-management/Enterprise";
+import HashLoader from "react-spinners/HashLoader";
 // import Footer from "./components/pages/Footer/Footer";
+import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={(props) => <Home {...props} />} />
-        <Route
-          path="/about-us"
-          exact
-          component={(props) => <AboutUs {...props} />}
+    <div>
+      {loading ? (
+        <HashLoader
+          color={"#D0021B"}
+          loading={loading}
+          style={{ alignItems: "centre" }}
+          size={100}
+          aria-label="Loading Spinner"
+          data-testid="loader"
         />
-        <Route
-          path="/contact-us"
-          component={(props) => <ContactUs {...props} />}
-        />
-        <Route path="/careers" component={(props) => <Careers {...props} />} />
-        <Route
-          path="/engineering"
-          component={(props) => <Engineering {...props} />}
-        />
-        <Route
-          path="/risk-management"
-          component={(props) => <RiskManagement {...props} />}
-        />
-        <Route
-          path="/enterprise-asset-management"
-          component={(props) => <Enterprise {...props} />}
-        />
-      </Switch>
-      {/* <Footer /> */}
-    </Router>
+      ) : (
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={(props) => <Home {...props} />} />
+            <Route
+              path="/about-us"
+              exact
+              component={(props) => <AboutUs {...props} />}
+            />
+            <Route
+              path="/contact-us"
+              component={(props) => <ContactUs {...props} />}
+            />
+            <Route
+              path="/careers"
+              component={(props) => <Careers {...props} />}
+            />
+            <Route
+              path="/engineering"
+              component={(props) => <Engineering {...props} />}
+            />
+            <Route
+              path="/risk-management"
+              component={(props) => <RiskManagement {...props} />}
+            />
+            <Route
+              path="/enterprise-asset-management"
+              component={(props) => <Enterprise {...props} />}
+            />
+          </Switch>
+          {/* <Footer /> */}
+        </Router>
+      )}
+    </div>
   );
 }
 
