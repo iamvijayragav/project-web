@@ -8,6 +8,7 @@ import Careers from "./components/pages/Careers/Careers";
 import AboutUs from "./components/pages/Aboutus/AboutUs";
 import Engineering from "./components/pages/DropDown-Pages/Engineering/Engineering";
 import RiskManagement from "./components/pages/DropDown-Pages/RiskManagement/RiskManagement";
+import Enterprise from "./components/pages/DropDown-Pages/Enterprise-asset-management/Enterprise";
 // import Footer from "./components/pages/Footer/Footer";
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
         <Route
           path="/risk-management"
           component={(props) => <RiskManagement {...props} />}
+        />
+        <Route
+          path="/enterprise-asset-management"
+          component={(props) => <Enterprise {...props} />}
         />
       </Switch>
       {/* <Footer /> */}
