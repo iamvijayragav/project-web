@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap");
+
+.riskmanagement-first img {
+  width: 100%;
+  display: flex;
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.riskmanagement-first h2 {
+  text-align: center;
+  position: absolute;
+  font-family: "Philosopher", Sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 28px;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.engineer-middle-content p {
+  color: #02678b;
+  font-family: "Poppins", Sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+.engineer-middle-content p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -20%;
+  width: 15%;
+  height: 2px;
+  background: #000;
+}
+.risk-last-div ul {
+  margin-left: 5%;
+}
+.risk-last-div li {
+  letter-spacing: 0.8px;
+  line-height: 1.9;
+}
