@@ -10,6 +10,9 @@ import Engineering from "./components/pages/DropDown-Pages/Engineering/Engineeri
 import RiskManagement from "./components/pages/DropDown-Pages/RiskManagement/RiskManagement";
 import Enterprise from "./components/pages/DropDown-Pages/Enterprise-asset-management/Enterprise";
 import HashLoader from "react-spinners/HashLoader";
+import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataManagement";
+import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
+import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
 // import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
 
@@ -19,7 +22,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    });
   }, []);
   return (
     <div>
@@ -57,6 +60,18 @@ function App() {
             <Route
               path="/risk-management"
               component={(props) => <RiskManagement {...props} />}
+            />
+            <Route
+              path="/data-management-project"
+              component={(props) => <DataManagement {...props} />}
+            />
+            <Route
+              path="/engineering-project"
+              component={(props) => <EngineeringProject {...props} />}
+            />
+            <Route
+              path="/risk-management-project"
+              component={(props) => <RiskManagementProject {...props} />}
             />
             <Route
               path="/enterprise-asset-management"

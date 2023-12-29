@@ -2,6 +2,7 @@
   width: 100%;
   height: 70vh;
   overflow-x: hidden;
+  z-index: -1;
 }
 .engineer-first h2 {
   text-align: center;

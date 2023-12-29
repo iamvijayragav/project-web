@@ -1,4 +1,4 @@
-// import React from "react";
+
 import React, { useEffect } from "react";
 import "./AboutUs.css";
 import CLOUDS from "vanta/src/vanta.rings";
