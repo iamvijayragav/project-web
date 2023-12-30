@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NET from "vanta/src/vanta.globe";
+import NET from "vanta/src/vanta.dots";
 import "../Engineering/Engineering.css";
 import "./Substainability.css";
 
