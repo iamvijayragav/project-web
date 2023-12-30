@@ -1,0 +1,53 @@
+.engineer-last-right span {
+  margin-left: -10%;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  line-height: 1.9;
+  font-size: 20px;
+}
+.engineer-services ol {
+  margin-left: 8%;
+  margin-top: 2%;
+}
+.datamanagements-last-right img {
+  margin-top: 7%;
+  position: absolute;
+  right: 8%;
+  width: 450px;
+}
+.engineer-middle-content h2 {
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  width: 80%;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 20px;
+}
+.engineer-middle-img button {
+  display: flex;
+}
+.button-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin-top: -25%;
+  right: 22%;
+}
+
+.button {
+  top: 50%;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 2%;
+  background-color: #e3ebf1;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #d83838;
+  color: #fff;
+  transform: scale(1.08);
+}

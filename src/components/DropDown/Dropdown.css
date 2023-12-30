@@ -16,7 +16,7 @@
   color: #fff;
 }
 
-.dropdown-menu.clicked {
+.dropdown-menu-clicked {
   display: none;
 }
 

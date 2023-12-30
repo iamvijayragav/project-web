@@ -6,14 +6,12 @@ import { Link } from "react-router-dom";
 function Dropdown(props) {
   const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(!click);
-
   return (
     <>
       <ul
-        onClick={handleClick}
+        onClick={() => setClick(!click)}
         style={{ background: "white" }}
-        className={click ? "dropdown-menu clicked" : "dropdown-menu"}
+        className={click ? "dropdown-menu-clicked" : "dropdown-menu"}
       >
         {MenuItems.map((item, index) => {
           return (

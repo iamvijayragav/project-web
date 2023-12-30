@@ -5,6 +5,7 @@ import Navbar from "./components/NavBar/Navbar";
 import Home from "./components/pages/Home/Home";
 import ContactUs from "./components/pages/ContactUs/ContactUs";
 import Careers from "./components/pages/Careers/Careers";
+import Substainability from "./components/pages/DropDown-Pages/Substainability/Substainability";
 import AboutUs from "./components/pages/Aboutus/AboutUs";
 import Engineering from "./components/pages/DropDown-Pages/Engineering/Engineering";
 import RiskManagement from "./components/pages/DropDown-Pages/RiskManagement/RiskManagement";
@@ -52,6 +53,10 @@ function App() {
             <Route
               path="/careers"
               component={(props) => <Careers {...props} />}
+            />
+            <Route
+              path="/sustainability-consulting"
+              component={(props) => <Substainability {...props} />}
             />
             <Route
               path="/engineering"
