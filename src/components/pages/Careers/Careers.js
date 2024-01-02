@@ -4,7 +4,8 @@ import "./Careers.css";
 import JobOpeningCard from "../Cards/JobOpeningCard";
 import ApplyForm from "./ApplyForm";
 function Careers() {
-  const [isApply, setIsApply] = useState(false);
+  // const [isApply, setIsApply] = useState(false);
+  const [applyInfo, setApplyInfo] = useState({ isApply: false, jobTitle: "" });
 
   return (
     <div className="main-career">
@@ -13,67 +14,92 @@ function Careers() {
           <h2>Job Openings</h2>
           <div className="job-opening-cards">
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Frontend Developer"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
             <JobOpeningCard
-              onApply={setIsApply}
+              onApply={(isApply, jobTitle) =>
+                setApplyInfo({ isApply, jobTitle })
+              }
               title="Backend Developer2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur ligula vel augue placerat, eu sagittis est feugiat."
             />
           </div>
         </div>
       </div>
-      {isApply && (
+      {applyInfo.isApply && (
         <div className="apply-form-container">
-          <h2>Apply Now</h2>
-          <ApplyForm onApply={setIsApply} />
+          <h2>Apply Now for {applyInfo.jobTitle}</h2>
+          <ApplyForm
+            onApply={() => setApplyInfo({ isApply: false, jobTitle: "" })}
+            jobTitle={applyInfo.jobTitle}
+          />
         </div>
       )}
     </div>

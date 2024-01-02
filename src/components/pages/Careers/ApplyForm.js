@@ -2,9 +2,16 @@ import React, { useRef, useState } from "react";
 import "./ApplyForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRefresh } from "@fortawesome/free-solid-svg-icons";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
-const ApplyForm = ({ onApply }) => {
+const ApplyForm = ({ onApply, jobTitle }) => {
+  // const notify = () =>
+  //   toast(
+  //     "🤗 Your Application was Sent! Our Recruiting team will contact you soon! Stay tuned for further updates"
+  //   );
   const [formError, setFormError] = useState(null);
+  const initialJobTitle = useRef(jobTitle);
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -16,7 +23,7 @@ const ApplyForm = ({ onApply }) => {
     nameRef.current.value = "";
     emailRef.current.value = "";
     resumeRef.current.value = null;
-    subjectRef.current.value = "";
+    subjectRef.current.value = initialJobTitle.current;
     messageRef.current.value = "";
     setFormError(null);
   };
@@ -104,6 +111,8 @@ const ApplyForm = ({ onApply }) => {
                         className="app-form-control"
                         placeholder="SUBJECT"
                         ref={subjectRef}
+                        defaultValue={jobTitle}
+                        readOnly
                         required
                       />
                     </div>
@@ -131,7 +140,12 @@ const ApplyForm = ({ onApply }) => {
                       <button
                         type="submit"
                         className="app-form-button"
-                        onClick={handleSubmit}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // notify(e);
+                          handleSubmit(e);
+                        }}
+                        // onClick={notify}
                       >
                         SEND
                       </button>
@@ -142,6 +156,7 @@ const ApplyForm = ({ onApply }) => {
                       >
                         WITHDRAW
                       </button>
+                      {/* <ToastContainer /> */}
                     </div>
                   </form>
                 </div>

@@ -204,3 +204,39 @@ input {
     padding: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .screen-body-item {
+    padding: 20px 5px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .app-form-control,
+  .app-form-button {
+    width: 100%;
+  }
+
+  .app-form-button {
+    margin-left: 0;
+    text-align-last: end;
+    margin-top: 15px;
+  }
+
+  .screen-body-item img {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .screen-body-item p {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

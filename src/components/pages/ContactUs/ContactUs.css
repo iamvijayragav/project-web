@@ -19,6 +19,8 @@
   width: 100%;
   overflow: hidden;
   background-color: var(--bg-color);
+  position: absolute;
+  z-index: -1;
 }
 
 .contact .container {
@@ -335,11 +337,17 @@ textarea.contact-input ~ .icon {
 
   .form-wrapper {
     width: 100%;
+    margin-top: -35%;
     padding: 1rem 0;
   }
 
   .right {
     display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    overflow: hidden;
   }
 }
 
