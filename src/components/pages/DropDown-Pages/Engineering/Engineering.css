@@ -108,3 +108,50 @@
   margin-left: -1%;
   line-height: 2.2;
 }
+
+@media screen and (max-width: 768px) {
+  .engineer-first {
+    height: 50vh;
+  }
+
+  .engineer-middle {
+    flex-direction: column;
+    padding: 3%;
+  }
+
+  .engineer-middle-content,
+  .engineer-middle-img {
+    width: 100%;
+    padding: 3% 0;
+  }
+
+  .engineer-middle-content h4 {
+    width: 100%;
+  }
+
+  .engineer-middle-img img {
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .engineer-paragh {
+    padding: 3%;
+  }
+
+  .engineer-last-div {
+    flex-direction: column;
+    padding: 3%;
+  }
+
+  .engineer-last-left,
+  .engineer-last-right {
+    width: 100%;
+    padding: 3% 0;
+    margin-left: 0;
+  }
+
+  .engineer-last-right h4 {
+    margin-left: 0;
+  }
+}

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import NET from "vanta/src/vanta.dots";
 import "./Engineering.css";
-// import React from "react";
 
 function Engineering() {
   useEffect(() => {
