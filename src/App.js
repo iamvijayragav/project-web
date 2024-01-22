@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./components/pages/Home/Home";
 import ContactUs from "./components/pages/ContactUs/ContactUs";
@@ -14,8 +14,13 @@ import HashLoader from "react-spinners/HashLoader";
 import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataManagement";
 import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
 import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
+import Login from "./components/LoginCredential/Login";
 // import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
+import EnvironmentalFactor from "./components/pages/DropDown-Pages/Substainability/EnvironmentalFactor";
+import SocialFactor from "./components/pages/DropDown-Pages/Substainability/SocialFactor";
+import GovernanceFactor from "./components/pages/DropDown-Pages/Substainability/GovernanceFactor";
+import Admin from "./components/pages/Admin-Dashboard/Admin";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -25,64 +30,62 @@ function App() {
       setLoading(false);
     }, 3000);
   }, []);
+
+  const showNavbar = () => {
+    const excludedPaths = ["/login", "/admin-dashboard"];
+    return !excludedPaths.includes(window.location.pathname);
+  };
+
   return (
     <div>
       {loading ? (
         <HashLoader
           color={"#D0021B"}
           loading={loading}
-          style={{ alignItems: "centre" }}
+          style={{ alignItems: "center" }}
           size={100}
           aria-label="Loading Spinner"
           data-testid="loader"
         />
       ) : (
         <Router>
-          <Navbar />
-          <Switch>
-            <Route path="/" exact component={(props) => <Home {...props} />} />
-            <Route
-              path="/about-us"
-              exact
-              component={(props) => <AboutUs {...props} />}
-            />
-            <Route
-              path="/contact-us"
-              component={(props) => <ContactUs {...props} />}
-            />
-            <Route
-              path="/careers"
-              component={(props) => <Careers {...props} />}
-            />
+          {showNavbar() && <Navbar />}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/careers" element={<Careers />} />
             <Route
               path="/sustainability-consulting"
-              component={(props) => <Substainability {...props} />}
+              element={<Substainability />}
             />
-            <Route
-              path="/engineering"
-              component={(props) => <Engineering {...props} />}
-            />
-            <Route
-              path="/risk-management"
-              component={(props) => <RiskManagement {...props} />}
-            />
+            <Route path="/engineering" element={<Engineering />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/risk-management" element={<RiskManagement />} />
             <Route
               path="/data-management-project"
-              component={(props) => <DataManagement {...props} />}
+              element={<DataManagement />}
             />
             <Route
               path="/engineering-project"
-              component={(props) => <EngineeringProject {...props} />}
+              element={<EngineeringProject />}
             />
             <Route
               path="/risk-management-project"
-              component={(props) => <RiskManagementProject {...props} />}
+              element={<RiskManagementProject />}
             />
             <Route
               path="/enterprise-asset-management"
-              component={(props) => <Enterprise {...props} />}
+              element={<Enterprise />}
             />
-          </Switch>
+            <Route
+              path="/environmental-factors"
+              element={<EnvironmentalFactor />}
+            />
+            <Route path="/social-factors" element={<SocialFactor />} />
+            <Route path="/admin-dashboard" element={<Admin />} />
+            <Route path="/governance-factors" element={<GovernanceFactor />} />
+          </Routes>
           {/* <Footer /> */}
         </Router>
       )}

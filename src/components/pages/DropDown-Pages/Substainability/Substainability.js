@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import NET from "vanta/src/vanta.dots";
 import "../Engineering/Engineering.css";
 import "./Substainability.css";
+import { Link } from "react-router-dom";
 
 function Substainability() {
   useEffect(() => {
@@ -179,13 +180,13 @@ function Substainability() {
           />
           <div className="button-div">
             <button type="sumbit" className="button">
-              Environmental Factor
+              <Link to="/environmental-factors">Environmental Factor</Link>
             </button>
             <button type="sumbit" className="button">
-              Social Factor
+              <Link to="/social-factors">Social Factor</Link>
             </button>
             <button type="sumbit" className="button">
-              Governance Factor
+              <Link to="/governance-factors">Governance Factor</Link>
             </button>
           </div>
         </div>

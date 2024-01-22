@@ -4,7 +4,6 @@ import "./Careers.css";
 import JobOpeningCard from "../Cards/JobOpeningCard";
 import ApplyForm from "./ApplyForm";
 function Careers() {
-  // const [isApply, setIsApply] = useState(false);
   const [applyInfo, setApplyInfo] = useState({ isApply: false, jobTitle: "" });
 
   return (

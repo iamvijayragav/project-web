@@ -21,7 +21,7 @@
 
 .p-quality,
 .span-achieve {
-  transition: 10s;
+  /* transition: 10s; */
   font-size: 40px;
   display: inline-block;
   position: relative;
@@ -32,7 +32,7 @@
 .p-innovation {
   font-weight: 100;
   color: rgb(112, 108, 108);
-  transition: 10s;
+  /* transition: 10s; */
   display: inline-block;
   position: relative;
 }
