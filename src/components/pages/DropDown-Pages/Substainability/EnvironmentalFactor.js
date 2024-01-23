@@ -1,6 +1,8 @@
 import React from "react";
 import "../RiskManagement/RiskManagement.css";
 import "./Substainability.css";
+import { Link } from "react-router-dom";
+
 function EnvironmentalFactor() {
   return (
     <div className="risk-container">
@@ -118,7 +120,7 @@ function EnvironmentalFactor() {
             </ul>
           </div>
         </div>
-        <div className="engineer-last-right">
+        <div className="engineer-last-right" style={{ marginLeft: 0 }}>
           <div className="right-images">
             <img
               src="https://www.tecnicoepc.com/wp-content/uploads/2023/02/pexels-mikhail-nilov-8543582-768x1150.jpg"
@@ -127,15 +129,89 @@ function EnvironmentalFactor() {
           </div>
         </div>
       </div>
+      <div className="datamanagement-last-div">
+        <div className="datamanagements-last-left">
+          <div className="datamanagement-last-content-p">
+            <h3>Impacts on Business</h3>
+            <p>
+              Environmental factors are often the most visible component of ESG
+              performance to investors, customers, and other stakeholders. At
+              one time, environmental concerns were considered more for their
+              non-financial, public relations value. Today, high-profile
+              environmental factors such as climate change, water scarcity, and
+              carbon footprint are evaluated for their direct financial impact
+              and effect on a company’s competitive positioning.
+            </p>
+            <h3>Investment</h3>
+            <p>
+              Like all ESG criteria, environmental factors may be used as a
+              risk-management guide for excluding certain companies, products,
+              or services from investment portfolios. Potential investors want
+              full disclosure of any risks a company might face up front, as
+              well as any plans the company has for mitigating those risks.
+            </p>
+            <h3>Opportunity Analysis</h3>
+            <p>
+              Environmental factors are also used to assess potential risks of a
+              new venture, a merger, or an expansion. Stakeholders will take
+              into consideration issues such as emissions compliance violations,
+              ownership of contaminated land, and hazardous waste generation
+              before making a commitment.
+            </p>
+            <h3>Risk Avoidance</h3>
+            <p>
+              Companies that ignore the impacts of their policies and practices
+              on the environment leave themselves exposed to financial and legal
+              risks. Failure to protect against extreme environmental incidents,
+              such as hazardous material spills or explosions, leave companies
+              open to regulatory penalties, criminal prosecution, damage to
+              their reputation, and harm to shareholder value.
+            </p>
+            <p>
+              Companies should not only assess and improve their ability to
+              operate successfully in the present, but also develop strategies
+              for potential long-term environmental disruptions and
+              opportunities.
+            </p>
+          </div>
+        </div>
+        <div className="datamanagements-last-right">
+          <img
+            style={{ marginTop: 180 }}
+            src="https://www.tecnicoepc.com/wp-content/uploads/2023/02/pexels-pixabay-414943-768x1024.jpg"
+            alt="show"
+          />
+        </div>
+      </div>
+      <div className="engineer-middle">
+        <div className="engineer-middle-content">
+          <span>Learn More </span>
+          <h2>
+            Visit our other “Understanding ESG” pages to learn more about
+            sustainability issues and how they affect your business.
+          </h2>
+        </div>
+        <div className="engineer-middle-img">
+          <img
+            src="	https://www.tecnicoepc.com/wp-content/uploads/2023/02/pexels-sameera-madusanka-1572036.jpg"
+            alt="show"
+          />
+          <div className="button-div">
+            <button type="sumbit" className="button">
+              <Link to="/social-factors">Social Factor</Link>
+            </button>
+            <button type="sumbit" className="button">
+              <Link to="/governance-factors">Governance Factor</Link>
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="engineer-paragh">
-        <h3>We Are Maintenance People</h3>
+        <h3>Full-Service Sustainability Consulting</h3>
         <p className="our-implement">
-          We are maintenance and operation professionals with field experience
-          using CMMS. From strategy and design to IT implementation, we
-          understand your requirements and how they translate into various
-          computer maintenance systems. Whether upstream or downstream, we
-          understand the nuances of each and can implement practical frontline
-          solutions.
+          Tecnicoe is uniquely qualified to help you manage ESG risks and
+          opportunities, with more than 40 years of consulting experience in a
+          diverse range of disciplines and applications.
         </p>
       </div>
     </div>
