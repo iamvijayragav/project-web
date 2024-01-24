@@ -37,7 +37,7 @@ const JobModal = mongoose.model('CurrentJob', new mongoose.Schema({
   description: String,
 }), 'CurrentJob');
 
-const UserInfo = mongoose.model("User", userSchema, "user");
+const UserInfo = mongoose.model("User", userSchema, "User");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -77,7 +77,6 @@ app.post("/login", async (req, res) => {
 app.get("/api/fetch-job", async (req, res) => {
   try {
     const jobs = await JobModal.find({});
-    console.log(jobs);
     res.status(200).json(jobs);
   } catch (err) {
     console.error("Error in Fetching Jobs", err);
