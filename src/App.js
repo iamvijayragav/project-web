@@ -31,7 +31,7 @@ function App() {
     }, 3000);
   }, []);
 
-  const showNavbar = () => {
+  const notShowNavbar = () => {
     const excludedPaths = ["/login", "/admin-dashboard"];
     return !excludedPaths.includes(window.location.pathname);
   };
@@ -49,7 +49,7 @@ function App() {
         />
       ) : (
         <Router>
-          {showNavbar() && <Navbar />}
+          {notShowNavbar() && <Navbar />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />

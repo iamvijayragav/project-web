@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -14,7 +15,7 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, email }),
       });
 
       const data = await response.json();
@@ -38,6 +39,14 @@ function Login() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Email: </label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>

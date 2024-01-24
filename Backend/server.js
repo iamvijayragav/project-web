@@ -2,27 +2,31 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
 
 try {
-  mongoose.connect('mongodb://localhost:27017/TecnicoLogin', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => {
-    console.log('MongoDB Connected');
-  }).catch((err) => {
-    console.error('Error connecting to MongoDB', err);
-  });
+  mongoose
+    .connect("mongodb://localhost:27017/TecnicoLogin", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      console.log("MongoDB Connected");
+    })
+    .catch((err) => {
+      console.error("Error connecting to MongoDB", err);
+    });
 } catch (err) {
-  console.error('Error connecting to MongoDB', err);
+  console.error("Error connecting to MongoDB", err);
 }
 
 const userSchema = new mongoose.Schema({
@@ -31,45 +35,47 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
-const JobModal = mongoose.model('CurrentJob', new mongoose.Schema({
-  job_id: String,
-  title: String,
-  description: String,
-}), 'CurrentJob');
+const JobModal = mongoose.model(
+  "CurrentJob",
+  new mongoose.Schema({
+    job_id: String,
+    title: String,
+    description: String,
+  }),
+  "CurrentJob"
+);
 
-const UserInfo = mongoose.model("User", userSchema, "user");
+const UserInfo = mongoose.model("User", userSchema, "User");
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/login", async (req, res) => {
-  const {
-    username,
-    password
-  } = req.body;
+  const { username, email, password } = req.body;
   console.log(username, password);
-  // todo change else to false
   try {
     const user = await UserInfo.findOne({
-      username: username
+      username,
+      email,
     });
+    console.log(user, "user");
 
-    if (user && user.password === password) {
+    if (user.password === password) {
       res.json({
         success: true,
-        message: "Login successful"
+        message: "Login successful",
       });
     } else {
       res.json({
         success: false,
-        message: "Invalid credentials"
+        message: "Invalid credentials",
       });
     }
   } catch (error) {
     console.error(error);
     res.status(500).json({
       success: false,
-      message: "Server error"
+      message: "Server error",
     });
   }
 });
@@ -83,11 +89,10 @@ app.get("/api/fetch-job", async (req, res) => {
     console.error("Error in Fetching Jobs", err);
     res.status(500).json({
       success: false,
-      message: "Server error"
+      message: "Server error",
     });
   }
-})
-
+});
 
 app.post("/api/add-job", async (req, res) => {
   try {
@@ -114,7 +119,11 @@ app.delete("/api/delete-job/:id", async (req, res) => {
 app.put("/api/edit-job/:id", async (req, res) => {
   try {
     const { job_id, title, description } = req.body;
-    const updatedJob = await JobModal.findByIdAndUpdate(req.params.id, { job_id, title, description }, { new: true });
+    const updatedJob = await JobModal.findByIdAndUpdate(
+      req.params.id,
+      { job_id, title, description },
+      { new: true }
+    );
     res.status(200).json(updatedJob);
   } catch (err) {
     console.error("Error editing job", err);
