@@ -15,7 +15,7 @@ import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataM
 import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
 import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
 import Login from "./components/LoginCredential/Login";
-// import Footer from "./components/pages/Footer/Footer";
+import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
 import EnvironmentalFactor from "./components/pages/DropDown-Pages/Substainability/EnvironmentalFactor";
 import SocialFactor from "./components/pages/DropDown-Pages/Substainability/SocialFactor";
@@ -86,7 +86,7 @@ function App() {
             <Route path="/admin-dashboard" element={<Admin />} />
             <Route path="/governance-factors" element={<GovernanceFactor />} />
           </Routes>
-          {/* <Footer /> */}
+           <Footer /> 
         </Router>
       )}
     </div>
