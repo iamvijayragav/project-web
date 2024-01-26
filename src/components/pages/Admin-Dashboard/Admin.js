@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const Admin = ({ onLogout }) => {
+const Admin = () => {
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [newJob, setNewJob] = useState({
@@ -13,23 +16,35 @@ const Admin = ({ onLogout }) => {
   const [editingJob, setEditingJob] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
+
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/fetch-job");
+
+        if (isMounted) {
+          setJobs(response.data);
+        }
+      } catch (err) {
+        console.error("Error in fetching jobs ", err);
+      }
+    };
     fetchJobs();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  const fetchJobs = async () => {
-    try {
-      const response = await axios.get("http://localhost:5000/api/fetch-job");
-      setJobs(response.data);
-    } catch (err) {
-      console.error("Error in fetching jobs ", err);
-    }
-  };
+  let isMounted = true;
 
   const addJob = async () => {
     try {
-      await axios.post("http://localhost:5000/api/add-job", newJob);
-      fetchJobs();
-      setNewJob({ job_id: "", title: "", description: "" });
+      if (isMounted) {
+        await axios.post("http://localhost:5000/api/add-job", newJob);
+        fetchJobs();
+        setNewJob({ job_id: "", title: "", description: "" });
+      }
     } catch (err) {
       console.error("Error adding job ", err);
     }
@@ -37,8 +52,10 @@ const Admin = ({ onLogout }) => {
 
   const deleteJob = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/delete-job/${id}`);
-      fetchJobs();
+      if (isMounted) {
+        await axios.delete(`http://localhost:5000/api/delete-job/${id}`);
+        fetchJobs();
+      }
     } catch (err) {
       console.error("Error deleting job ", err);
     }
@@ -46,16 +63,31 @@ const Admin = ({ onLogout }) => {
 
   const editJob = async () => {
     try {
-      await axios.put(
-        `http://localhost:5000/api/edit-job/${editingJob._id}`,
-        editingJob
-      );
-      fetchJobs();
-      setEditingJob(null);
+      if (isMounted) {
+        await axios.put(
+          `http://localhost:5000/api/edit-job/${editingJob._id}`,
+          editingJob
+        );
+        fetchJobs();
+        setEditingJob(null);
+      }
     } catch (err) {
       console.error("Error editing job ", err);
     }
   };
+
+  const fetchJobs = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/fetch-job");
+
+      if (isMounted) {
+        setJobs(response.data);
+      }
+    } catch (err) {
+      console.error("Error in fetching jobs ", err);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("_id");
@@ -63,11 +95,15 @@ const Admin = ({ onLogout }) => {
   };
 
   return (
-    <div>
+    <div className="admin-container">
+      <button className="logout-btn" onClick={logout}>
+        Logout
+      </button>
       <h1>Job Management System</h1>
-      <div>
-        <h2>Add/Edit Job</h2>
+      <div className="form-container">
+        <h2>Integrate Latest Position</h2>
         <form
+          className="admin-form"
           onSubmit={(e) => {
             e.preventDefault();
             if (editingJob) {
@@ -78,7 +114,7 @@ const Admin = ({ onLogout }) => {
           }}
         >
           <label>
-            Job ID:
+            Job ID
             <input
               type="text"
               value={editingJob ? editingJob.job_id : newJob.job_id}
@@ -92,7 +128,7 @@ const Admin = ({ onLogout }) => {
             />
           </label>
           <label>
-            Title:
+            Title
             <input
               type="text"
               value={editingJob ? editingJob.title : newJob.title}
@@ -106,9 +142,10 @@ const Admin = ({ onLogout }) => {
             />
           </label>
           <label>
-            Description:
-            <input
+            Description
+            <textarea
               type="text"
+              style={{ height: 150 }}
               value={editingJob ? editingJob.description : newJob.description}
               onChange={(e) => {
                 if (editingJob) {
@@ -122,33 +159,43 @@ const Admin = ({ onLogout }) => {
           <button type="submit">{editingJob ? "Edit Job" : "Add Job"}</button>
         </form>
       </div>
-      <div>
+      <div className="job-list-container">
         <h2>Current Jobs</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {jobs.map((job) => (
-              <tr key={job._id}>
-                <td>{job.job_id}</td>
-                <td>{job.title}</td>
-                <td>{job.description}</td>
-                <td>
-                  <button onClick={() => deleteJob(job._id)}>Delete</button>
-                  <button onClick={() => setEditingJob(job)}>Edit</button>
-                </td>
+
+        {jobs.length === 0 ? (
+          <p style={{ textAlign: "center", fontSize: 20, color: "red" }}>
+            No jobs currently available!
+          </p>
+        ) : (
+          <table className="job-list">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {jobs.map((job) => (
+                <tr key={job._id}>
+                  <td>{job.job_id}</td>
+                  <td>{job.title}</td>
+                  <td>{job.description}</td>
+                  <td className="btn-edit-delete">
+                    <button onClick={() => deleteJob(job._id)}>
+                      <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
+                    <button onClick={() => setEditingJob(job)}>
+                      <FontAwesomeIcon icon={faEdit} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
-      <button onClick={logout}>Logout</button>
     </div>
   );
 };
