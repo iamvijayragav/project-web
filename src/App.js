@@ -15,7 +15,7 @@ import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataM
 import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
 import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
 import Login from "./components/LoginCredential/Login";
-import Footer from "./components/pages/Footer/Footer";
+// import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
 import EnvironmentalFactor from "./components/pages/DropDown-Pages/Substainability/EnvironmentalFactor";
 import SocialFactor from "./components/pages/DropDown-Pages/Substainability/SocialFactor";
@@ -83,39 +83,6 @@ function App() {
           <Route path="/governance-factors" element={<GovernanceFactor />} />
         </Routes>
         {/* <Footer /> */}
-      </Router>
-      {/* )} */}
-      ======= ) : (
-      <Router>
-        {notShowNavbar() && <Navbar />}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route
-            path="/sustainability-consulting"
-            element={<Substainability />}
-          />
-          <Route path="/engineering" element={<Engineering />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/risk-management" element={<RiskManagement />} />
-          <Route path="/data-management-project" element={<DataManagement />} />
-          <Route path="/engineering-project" element={<EngineeringProject />} />
-          <Route
-            path="/risk-management-project"
-            element={<RiskManagementProject />}
-          />
-          <Route path="/enterprise-asset-management" element={<Enterprise />} />
-          <Route
-            path="/environmental-factors"
-            element={<EnvironmentalFactor />}
-          />
-          <Route path="/social-factors" element={<SocialFactor />} />
-          <Route path="/admin-dashboard" element={<Admin />} />
-          <Route path="/governance-factors" element={<GovernanceFactor />} />
-        </Routes>
-        <Footer />
       </Router>
       {/* )} */}
     </div>
