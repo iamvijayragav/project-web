@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../global.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -26,39 +27,50 @@ function Login() {
       }
     } catch (error) {
       console.error("Error:", error);
-      setMessage("Server error");
+      setMessage("Check Your Credential!");
     }
   };
 
   return (
-    <div className="App">
-      <h1>Login Page</h1>
-      <div>
-        <label>Username: </label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    <div className="Login-container">
+      <div className="Login-image">
+        <img
+          src="https://www.tecnicoepc.com/wp-content/uploads/2023/02/download-49.jpeg"
+          alt="show"
         />
       </div>
-      <div>
-        <label>Email: </label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <div className="Login-content">
+        <h1>Login </h1>
+        <div>
+          <input
+            placeholder="Username"
+            type="text"
+            value={username}
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            placeholder="Email"
+            type="text"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            placeholder="Password"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <p>{message}</p>
+        <button onClick={handleLogin}>Login</button>
       </div>
-      <div>
-        <label>Password: </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button onClick={handleLogin}>Login</button>
-      <p>{message}</p>
     </div>
   );
 }
