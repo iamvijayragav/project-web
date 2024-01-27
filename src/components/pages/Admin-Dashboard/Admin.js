@@ -181,7 +181,7 @@ const Admin = () => {
                 <tr key={job._id}>
                   <td>{job.job_id}</td>
                   <td>{job.title}</td>
-                  <td>{job.description}</td>
+                  <td style={{ textAlign: "justify" }}>{job.description}</td>
                   <td className="btn-edit-delete">
                     <button onClick={() => deleteJob(job._id)}>
                       <FontAwesomeIcon icon={faTrashCan} />

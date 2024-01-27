@@ -185,7 +185,17 @@ function EnvironmentalFactor() {
       </div>
       <div className="engineer-middle">
         <div className="engineer-middle-content">
-          <span>Learn More </span>
+          <h4
+            style={{
+              color: "#02678b",
+              fontFamily: "Poppins",
+              letterSpacing: 1.2,
+              fontWeight: 500,
+              marginBottom: 5,
+            }}
+          >
+            Learn More{" "}
+          </h4>
           <h2>
             Visit our other “Understanding ESG” pages to learn more about
             sustainability issues and how they affect your business.

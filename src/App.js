@@ -50,8 +50,6 @@ function App() {
           size={100}
           aria-label="Loading Spinner"
           data-testid="loader"
-        />
-<<<<<<< HEAD
       ) : ( */}
       <Router>
         {notShowNavbar() && <Navbar />}
