@@ -321,10 +321,13 @@ function Navbar() {
                               onMouseEnter={() => handleToggleSubDropdown(id)}
                               onMouseLeave={handleMouseLeave}
                             >
-                              <div className="dropdown__link">
-                                {submenu.title}{" "}
+                              <Link
+                                to={submenu.path}
+                                className="dropdown__link"
+                              >
+                                {submenu.title}
                                 <i className="ri-arrow-right-s-line dropdown__arrow"></i>
-                              </div>
+                              </Link>
                               <ul
                                 className={`dropdown__submenu ${
                                   subDropdownVisible === id ? "show" : ""
