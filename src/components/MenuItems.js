@@ -3,6 +3,23 @@ export const MenuItems = [
     title: "Sustainability Consulting",
     path: "/sustainability-consulting",
     cName: "dropdown-link",
+    subDrop: [
+      {
+        title: "Environmental Factor",
+        path: "/environmental-factors",
+        cName: "dropdown-link",
+      },
+      {
+        title: "Social Factor",
+        path: "/social-factors",
+        cName: "dropdown-link",
+      },
+      {
+        title: "Governance Factor",
+        path: "/governance-factors",
+        cName: "dropdown-link",
+      },
+    ],
   },
   {
     title: "Engineering",

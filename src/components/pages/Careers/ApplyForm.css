@@ -156,12 +156,12 @@ input {
 .screen-body-item img {
   display: flex;
   position: relative;
-  margin-top: 10%;
+  margin-top: 8%;
   justify-content: center;
   width: 85%;
 }
 .screen-body-item p {
-  margin-top: 15%;
+  margin-top: 8%;
   line-height: 160%;
   text-align: justify;
 }

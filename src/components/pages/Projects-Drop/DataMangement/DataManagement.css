@@ -6,3 +6,8 @@
   line-height: 2.1;
   font-family: "Poppins", Sans-serif;
 }
+@media screen and (max-width: 768px) {
+  .datamanagement-last-div {
+    display: block;
+  }
+}

@@ -33,7 +33,7 @@ function Careers() {
     <div className="main-career">
       <div className="content-container">
         <div className="job-openings-container">
-          <h2>Job Openings</h2>
+          <h2>JOB OPENINGS</h2>
           <div className="job-opening-cards">
             {jobs.length === 0 ? (
               <p
@@ -65,7 +65,7 @@ function Careers() {
 
       {applyInfo.isApply && (
         <div className="apply-form-container">
-          <h2>Apply Now for {applyInfo.jobTitle}</h2>
+          <h2 style={{ marginTop: 20 }}>Apply Now for {applyInfo.jobTitle}</h2>
           <ApplyForm
             onApply={() => setApplyInfo({ isApply: false, jobTitle: "" })}
             jobTitle={applyInfo.jobTitle}

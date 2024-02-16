@@ -19,7 +19,7 @@
   width: 100%;
   overflow: hidden;
   background-color: var(--bg-color);
-  position: absolute;
+  position: relative;
   z-index: -1;
 }
 

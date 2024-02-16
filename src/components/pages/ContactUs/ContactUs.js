@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./ContactUs.css";
+import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressCard,
   faEnvelope,
   faInbox,
 } from "@fortawesome/free-solid-svg-icons";
+
 function ContactUs() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_p10bpeb",
+        "template_rjxevub",
+        form.current,
+        "jOkGsXaS-RakMpruA"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("message sent");
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <main>
       <section className="contact">
@@ -23,11 +49,17 @@ function ContactUs() {
                 </p>
               </div>
 
-              <form action="index.html" method="post" className="contact-form">
+              <form
+                action="index.html"
+                ref={form}
+                method="post"
+                className="contact-form"
+                onSubmit={sendEmail}
+              >
                 <div className="input-wrap">
                   <input
                     className="contact-input"
-                    name="First Name"
+                    name="First_Name"
                     type="text"
                     placeholder="First Name"
                     required
@@ -38,7 +70,7 @@ function ContactUs() {
                 <div className="input-wrap">
                   <input
                     className="contact-input"
-                    name="Last Name"
+                    name="Last_Name"
                     placeholder="Last Name"
                     type="text"
                     required

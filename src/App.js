@@ -15,7 +15,7 @@ import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataM
 import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
 import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
 import Login from "./components/LoginCredential/Login";
-// import Footer from "./components/pages/Footer/Footer";
+import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
 import EnvironmentalFactor from "./components/pages/DropDown-Pages/Substainability/EnvironmentalFactor";
 import SocialFactor from "./components/pages/DropDown-Pages/Substainability/SocialFactor";
@@ -39,6 +39,32 @@ function App() {
     }
     return !excludedPaths.includes(currentPath);
   };
+
+  const notShowFooter = () => {
+    const excludedPaths = ["/login", "/admin-dashboard"];
+    const currentPath = window.location.pathname;
+    return !excludedPaths.includes(currentPath);
+  };
+
+  // const showFooter = () => {
+  //   const includedPaths = [
+  //     "/",
+  //     "/about-us",
+  //     "/careers",
+  //     "/sustainability-consulting",
+  //     "/engineering",
+  //     "/risk-management",
+  //     "/data-management-project",
+  //     "/engineering-project",
+  //     "/risk-management-project",
+  //     "/enterprise-asset-management",
+  //     "/environmental-factors",
+  //     "/social-factors",
+  //     "/governance-factors",
+  //   ];
+  //   const currentPath = window.location.pathname;
+  //   return includedPaths.includes(currentPath);
+  // };
 
   return (
     <div>
@@ -80,7 +106,7 @@ function App() {
           <Route path="/admin-dashboard" element={<Admin />} />
           <Route path="/governance-factors" element={<GovernanceFactor />} />
         </Routes>
-        {/* <Footer /> */}
+        {notShowFooter() && <Footer />}
       </Router>
       {/* )} */}
     </div>

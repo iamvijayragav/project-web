@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rasa:wght@400;600&display=swap");
+
 .Top-area {
   display: flex;
   padding: 5%;
@@ -13,7 +15,6 @@
 }
 
 .margin-top {
-  margin-top: 5vh;
   font-size: 50px;
   width: 35vw;
   cursor: pointer;
@@ -21,7 +22,6 @@
 
 .p-quality,
 .span-achieve {
-  /* transition: 10s; */
   font-size: 40px;
   display: inline-block;
   position: relative;
@@ -32,7 +32,6 @@
 .p-innovation {
   font-weight: 100;
   color: rgb(112, 108, 108);
-  /* transition: 10s; */
   display: inline-block;
   position: relative;
 }
@@ -124,22 +123,11 @@
 .p-company {
   position: absolute;
   left: 5%;
-  font-size: 25px;
-  color: blue;
-}
-
-.hr-first {
-  position: relative;
-  left: 5%;
-  margin-top: 3%;
-  width: 10%;
-}
-
-.hr-second {
-  position: relative;
-  left: 5%;
-  margin-top: 1px;
-  width: 10%;
+  font-family: "Rasa", Sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #00678b;
 }
 
 .last-div {
@@ -174,31 +162,134 @@
   font-size: 25px;
   top: -40px;
 }
-
-.last-middle p {
-  font-size: 20px;
+.datamanagement-middle-content p {
   width: 80%;
-  letter-spacing: 2px;
-  line-height: 160%;
+  margin-left: 4%;
+  font-family: "Rasa", Sans-serif;
+  font-size: 22px;
+  font-weight: 500;
   text-align: justify;
-  position: relative;
-  left: 10%;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
 }
 
-.footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  font-size: 15px;
-  height: 50px;
-  background-color: #9dd6ff;
+.main-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
+.left-home {
+  width: 44%;
+  padding: 20px;
+  position: relative;
+}
+
+.left-home p {
+  font-family: "Rasa", Sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.left-home img {
+  max-width: 100%;
+  cursor: pointer;
+  transition: 0.6s;
+  height: 100%;
+}
+
+.left-home img:hover {
+  transform: scale(0.9);
+}
+
+.right-home {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grid-item {
+  flex: 1 1 48%;
+  position: relative;
+}
+
+.grid-item img {
+  max-width: 100%;
+  cursor: pointer;
+  transition: 0.6s;
+  height: 100%;
+}
+
+.grid-item img:hover {
+  transform: scale(0.9);
+}
+
+.grid-item p {
+  font-family: "Rasa", Sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+.last-middle p {
+  margin-top: -4%;
+  font-family: "Rasa", Sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: justify;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  padding: 8%;
+  display: block;
+  opacity: 0;
+  animation: reveal 1s ease-in-out forwards;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* @media only screen and (max-width: 768px) {
+
+} */
 @media screen and (max-width: 768px) {
+  .datamanagement-middle-content p {
+    width: 90%;
+  }
+  .main-container {
+    flex-direction: column;
+  }
+  .p-company {
+    position: relative;
+  }
+
+  .left-home,
+  .right-home {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .left-home p,
+  .grid-item p {
+    font-size: 24px;
+  }
   .Top-area {
     flex-direction: column;
     align-items: center;
@@ -216,10 +307,6 @@
   .p-quality,
   .span-achieve {
     font-size: 30px;
-  }
-  .hr-first,
-  .hr-second {
-    display: none;
   }
   .p-innovation {
     font-size: 18px;
@@ -264,5 +351,9 @@
     margin-bottom: 8%;
     left: 1%;
     width: 100%;
+  }
+  .riskmanagement-first h2 {
+    width: 100%;
+    top: 45%;
   }
 }
