@@ -1,73 +1,86 @@
 export const MenuItems = [
   {
-    title: "Sustainability Consulting",
-    path: "/sustainability-consulting",
-    cName: "dropdown-link",
-    subDrop: [
+    id: 1,
+    title: "Home",
+    path: "/",
+  },
+  {
+    id: 2,
+    title: "About Us",
+    path: "/about-us",
+  },
+  {
+    id: 3,
+    title: "Services",
+    children: [
       {
-        title: "Environmental Factor",
-        path: "/environmental-factors",
-        cName: "dropdown-link",
+        id: 31,
+        title: "Sustainability Consulting",
+        path: "/sustainability-consulting",
+        children: [
+          {
+            id: 311,
+            title: "Environmental Factor",
+            path: "/environmental-factors",
+          },
+          {
+            id: 312,
+            title: "Social Factors",
+            path: "/social-factors",
+          },
+          {
+            id: 313,
+            title: "Governance Factors",
+            path: "/governance-factors",
+          },
+        ],
       },
       {
-        title: "Social Factor",
-        path: "/social-factors",
-        cName: "dropdown-link",
+        id: 32,
+        title: "Engineering",
+        path: "/engineering",
       },
       {
-        title: "Governance Factor",
-        path: "/governance-factors",
-        cName: "dropdown-link",
+        id: 33,
+        title: "Enterprise Asset Management",
+        path: "/enterprise-asset-management",
+      },
+      {
+        id: 34,
+        title: "Risk Management",
+        path: "/risk-management",
       },
     ],
   },
   {
-    title: "Engineering",
-    path: "/engineering",
-    cName: "dropdown-link",
+    id: 4,
+    title: "Projects",
+    children: [
+      {
+        id: 41,
+        title: "Engineering Projects",
+        path: "/engineering-project",
+      },
+      {
+        id: 42,
+        title: "Data Management Project",
+        path: "/data-management-project",
+      },
+      {
+        id: 43,
+        title: "Risk Management Project",
+        path: "/risk-management-project",
+      },
+    ],
   },
   {
-    title: "Enterprise Asset Management",
-    path: "/enterprise-asset-management",
-    cName: "dropdown-link",
+    id: 5,
+    title: "Careers",
+    path: "/careers",
   },
   {
-    title: "Risk Management",
-    path: "/risk-management",
-    cName: "dropdown-link",
-  },
-];
-export const ProjectItems = [
-  {
-    title: "Engineering Projects",
-    path: "/engineering-project",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Data Management Project",
-    path: "/data-management-project",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Risk Management Project",
-    path: "/risk-management-project",
-    cName: "dropdown-link",
-  },
-];
-export const SubDropDown = [
-  {
-    title: "Risk Management Project",
-    path: "/risk-management-project",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Risk Management Project",
-    path: "/risk-management-project",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Risk Management Project",
-    path: "/risk-management-project",
-    cName: "dropdown-link",
+    id: 6,
+    title: "Contact Us",
+    path: "/contact-us",
   },
 ];
