@@ -2,9 +2,11 @@ import React from "react";
 import "../RiskManagement/RiskManagement.css";
 import "./Substainability.css";
 import { Link } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 function SocialFactor() {
   return (
+    <>
     <div className="risk-container">
       <div className="enterprise-first">
         <img
@@ -222,6 +224,8 @@ function SocialFactor() {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Careers.css";
 import JobOpeningCard from "../Cards/JobOpeningCard";
 import ApplyForm from "./ApplyForm";
-
+import Footer from "../Footer/Footer";
 function Careers() {
   const [jobs, setJobs] = useState([]);
   const [applyInfo, setApplyInfo] = useState({ isApply: false, jobTitle: "" });
@@ -30,49 +30,54 @@ function Careers() {
   }, []);
 
   return (
-    <div className="main-career">
-      <div className="content-container">
-        <div className="job-openings-container">
-          <h2>JOB OPENINGS</h2>
-          <div className="job-opening-cards">
-            {jobs.length === 0 ? (
-              <p
-                className="error-career"
-                style={{
-                  color: "#d83838",
-                  fontSize: 23,
-                  textAlign: "center",
-                  padding: 10,
-                }}
-              >
-                Currently No Jobs Available!
-              </p>
-            ) : (
-              jobs.map((job, id) => (
-                <JobOpeningCard
-                  key={id}
-                  onApply={(isApply, jobTitle) =>
-                    setApplyInfo({ isApply, jobTitle })
-                  }
-                  title={job.title}
-                  description={job.description}
-                />
-              ))
-            )}
+    <>
+      <div className="main-career">
+        <div className="content-container">
+          <div className="job-openings-container">
+            <h2>JOB OPENINGS</h2>
+            <div className="job-opening-cards">
+              {jobs.length === 0 ? (
+                <p
+                  className="error-career"
+                  style={{
+                    color: "#d83838",
+                    fontSize: 23,
+                    textAlign: "center",
+                    padding: 10,
+                  }}
+                >
+                  Currently No Jobs Available!
+                </p>
+              ) : (
+                jobs.map((job, id) => (
+                  <JobOpeningCard
+                    key={id}
+                    onApply={(isApply, jobTitle) =>
+                      setApplyInfo({ isApply, jobTitle })
+                    }
+                    title={job.title}
+                    description={job.description}
+                  />
+                ))
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      {applyInfo.isApply && (
-        <div className="apply-form-container">
-          <h2 style={{ marginTop: 20 }}>Apply Now for {applyInfo.jobTitle}</h2>
-          <ApplyForm
-            onApply={() => setApplyInfo({ isApply: false, jobTitle: "" })}
-            jobTitle={applyInfo.jobTitle}
-          />
-        </div>
-      )}
-    </div>
+        {applyInfo.isApply && (
+          <div className="apply-form-container">
+            <h2 style={{ marginTop: 20 }}>
+              Apply Now for {applyInfo.jobTitle}
+            </h2>
+            <ApplyForm
+              onApply={() => setApplyInfo({ isApply: false, jobTitle: "" })}
+              jobTitle={applyInfo.jobTitle}
+            />
+          </div>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
 

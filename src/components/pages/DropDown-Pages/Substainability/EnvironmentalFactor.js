@@ -2,9 +2,11 @@ import React from "react";
 import "../RiskManagement/RiskManagement.css";
 import "./Substainability.css";
 import { Link } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 function EnvironmentalFactor() {
   return (
+    <>
     <div className="risk-container">
       <div className="enterprise-first">
         <img
@@ -225,6 +227,8 @@ function EnvironmentalFactor() {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import Footer from "../Footer/Footer";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCircleDot } from "@fortawesome/free-solid-svg-icons";
 // import Popup from "../../Modal/Popup";
@@ -117,6 +118,7 @@ export default function Home() {
           for project success.
         </p>
       </div>
+      <Footer />
     </>
   );
 }

@@ -31,7 +31,7 @@
   font-weight: 500;
   letter-spacing: 0.1px;
 }
-.engineer-middle-content span::after {
+/* .engineer-middle-content span::after {
   content: "";
   display: block;
   position: absolute;
@@ -39,7 +39,7 @@
   width: 90px;
   height: 2px;
   background: #000;
-}
+} */
 .engineer-middle-content h4 {
   margin-top: 5%;
   width: 50%;

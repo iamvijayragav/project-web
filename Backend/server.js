@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
+  role: String,
 });
 
 const JobModal = mongoose.model(
@@ -57,13 +58,9 @@ app.post("/login", async (req, res) => {
       username,
       email,
     });
-    console.log(user, "user");
 
     if (user.password === password) {
-      res.json({
-        success: true,
-        message: "Login successful",
-      });
+      res.json({ data: user, success: true });
     } else {
       res.json({
         success: false,
@@ -79,10 +76,24 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post("/verify", async (req, res) => {
+  const { _id, currRole } = req.body;
+  try {
+    const oldUser = await UserInfo.findOne({ _id });
+    if (oldUser && oldUser.role === currRole) {
+      //todo hashing
+      return res.send({ validUser: true });
+    } else {
+      return res.send({ validUser: false }).status(403);
+    }
+  } catch (error) {
+    console.log(error);
+    res.send({ status: "error" }).status(409);
+  }
+});
 app.get("/api/fetch-job", async (req, res) => {
   try {
     const jobs = await JobModal.find({});
-    console.log(jobs);
     res.status(200).json(jobs);
   } catch (err) {
     console.error("Error in Fetching Jobs", err);
@@ -130,5 +141,5 @@ app.put("/api/edit-job/:id", async (req, res) => {
   }
 });
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on ${PORT}`);
 });

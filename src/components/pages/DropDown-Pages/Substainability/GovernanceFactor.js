@@ -2,9 +2,11 @@ import React from "react";
 import "../RiskManagement/RiskManagement.css";
 import "./Substainability.css";
 import { Link } from "react-router-dom";
+import Footer from "../../Footer/Footer";
 
 function GovernanceFactor() {
   return (
+    <>
     <div className="risk-container">
       <div className="enterprise-first">
         <img
@@ -186,6 +188,8 @@ function GovernanceFactor() {
         </p>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

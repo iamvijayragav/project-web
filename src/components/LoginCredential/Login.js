@@ -20,9 +20,10 @@ function Login() {
       });
 
       const data = await response.json();
-      setMessage(data.message);
 
       if (data.success) {
+        localStorage.setItem("email", data.data.email);
+        localStorage.setItem("_id", data.data._id);
         navigate("/admin-dashboard");
       }
     } catch (error) {

@@ -106,7 +106,7 @@ function Navbar() {
                                 className="dropdown__link"
                               >
                                 {submenu.title}
-                                <i className="ri-arrow-right-s-line dropdown__arrow"></i>
+                                <i className="ri-arrow-left-s-line dropdown__arrow"></i>
                               </Link>
                               <ul
                                 className={`dropdown__submenu ${

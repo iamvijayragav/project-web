@@ -15,12 +15,12 @@ import DataManagement from "./components/pages/Projects-Drop/DataMangement/DataM
 import EngineeringProject from "./components/pages/Projects-Drop/Engineering-Proj/EngineeringProject";
 import RiskManagementProject from "./components/pages/Projects-Drop/RiskManagementProject/RiskManagementProject";
 import Login from "./components/LoginCredential/Login";
-import Footer from "./components/pages/Footer/Footer";
 import "./App.css";
 import EnvironmentalFactor from "./components/pages/DropDown-Pages/Substainability/EnvironmentalFactor";
 import SocialFactor from "./components/pages/DropDown-Pages/Substainability/SocialFactor";
 import GovernanceFactor from "./components/pages/DropDown-Pages/Substainability/GovernanceFactor";
 import Admin from "./components/pages/Admin-Dashboard/Admin";
+import Notfound from "./components/pages/NotfoundPage/Notfound";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -40,11 +40,11 @@ function App() {
     return !excludedPaths.includes(currentPath);
   };
 
-  const notShowFooter = () => {
-    const excludedPaths = ["/login", "/admin-dashboard"];
-    const currentPath = window.location.pathname;
-    return !excludedPaths.includes(currentPath);
-  };
+  // const notShowFooter = () => {
+  //   const excludedPaths = ["/login", "/admin-dashboard"];
+  //   const currentPath = window.location.pathname;
+  //   return !excludedPaths.includes(currentPath);
+  // };
 
   return (
     <div>
@@ -95,8 +95,9 @@ function App() {
             <Route path="/social-factors" element={<SocialFactor />} />
             <Route path="/admin-dashboard" element={<Admin />} />
             <Route path="/governance-factors" element={<GovernanceFactor />} />
+            <Route path="*" element={<Notfound />} />
           </Routes>
-          {notShowFooter() && <Footer />}
+          {/* {notShowFooter() && <Footer />} */}
         </Router>
       )}
     </div>
