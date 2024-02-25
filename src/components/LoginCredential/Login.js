@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../global.css";
-import axios from 'axios';
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -22,7 +21,6 @@ function Login() {
       });
 
       const data = await response.json();
-      // setMessage(data.message);
 
       if (data.success) {
         localStorage.setItem("email", data.data.email);

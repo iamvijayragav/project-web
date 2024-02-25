@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -30,7 +29,6 @@ const Admin = () => {
         res => {
           if (res && res.data.validUser) {
             setIsValidUser(true);
-
           } else {
             return (
               navigate("/")
