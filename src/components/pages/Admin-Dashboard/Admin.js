@@ -15,8 +15,6 @@ const Admin = () => {
   });
   const [IsLoading, setIsLoading] = useState(false);
   const [IsValidUser, setIsValidUser] = useState(false);
-  const [IsLoading, setIsLoading] = useState(false);
-  const [IsValidUser, setIsValidUser] = useState(false);
   const [editingJob, setEditingJob] = useState(null);
 
   async function fetchApi() {
