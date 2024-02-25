@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../global.css";
+import axios from 'axios';
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -8,6 +9,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
 
   const handleLogin = async () => {
     try {
@@ -20,9 +22,11 @@ function Login() {
       });
 
       const data = await response.json();
-      setMessage(data.message);
+      // setMessage(data.message);
 
       if (data.success) {
+        localStorage.setItem("email", data.data.email);
+        localStorage.setItem("_id", data.data._id);
         navigate("/admin-dashboard");
       }
     } catch (error) {
@@ -30,6 +34,7 @@ function Login() {
       setMessage("Check Your Credential!");
     }
   };
+
 
   return (
     <div className="Login-container">
