@@ -61,6 +61,7 @@ app.post("/login", async (req, res) => {
 
     if (user.password === password) {
       res.json({ data: user, success: true });
+      res.json({ data: user, success: true });
     } else {
       res.json({
         success: false,
@@ -141,5 +142,6 @@ app.put("/api/edit-job/:id", async (req, res) => {
   }
 });
 app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
   console.log(`Server is running on ${PORT}`);
 });
