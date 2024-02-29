@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const PORT = 5000;
-
+require('dotenv').config();
+const { MONGO_URL, PORT } = process.env
 app.use(cors());
 app.use(
   bodyParser.urlencoded({
@@ -14,7 +14,7 @@ app.use(
 app.use(express.json());
 try {
   mongoose
-    .connect("mongodb://localhost:27017/TecnicoLogin", {
+    .connect(MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
@@ -60,7 +60,6 @@ app.post("/login", async (req, res) => {
     });
 
     if (user.password === password) {
-      res.json({ data: user, success: true });
       res.json({ data: user, success: true });
     } else {
       res.json({
